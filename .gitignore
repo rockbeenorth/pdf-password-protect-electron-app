@@ -1,0 +1,22 @@
+node_modules/
+dist/
+src/vendor/
+
+# Protected PDF outputs from testing
+*_protected.pdf
+
+# Bundled qpdf binaries (downloaded/copied at build time)
+resources/qpdf/win/
+resources/qpdf/mac/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Env
+.env
+.env.*

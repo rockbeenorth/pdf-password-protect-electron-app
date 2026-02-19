@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Password Protector</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>PDF Password Protector</h1>
+      <p class="subtitle">Drop patient PDFs to auto-generate password-protected copies</p>
+    </header>
+
+    <!-- Drop Zone Screen -->
+    <div id="drop-zone-screen">
+      <div id="drop-zone" tabindex="0">
+        <div class="drop-zone-content">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+            <line x1="12" y1="18" x2="12" y2="12"/>
+            <polyline points="9,15 12,12 15,15"/>
+          </svg>
+          <p class="drop-text">Drop PDF files here</p>
+          <p class="drop-hint">or click to browse</p>
+        </div>
+      </div>
+
+      <div class="output-dir-row">
+        <label>Output folder:</label>
+        <span id="output-dir-label">Same folder as input files</span>
+        <button id="change-dir-btn" class="btn-secondary">Change</button>
+      </div>
+    </div>
+
+    <!-- Processing Screen -->
+    <div id="processing-screen" class="hidden">
+      <div class="progress-bar-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <p id="progress-text">Processing...</p>
+    </div>
+
+    <!-- Review Screen -->
+    <div id="review-screen" class="hidden">
+      <div class="review-header">
+        <h2>Review Extracted Data</h2>
+        <button id="add-more-btn" class="btn-secondary">+ Add More PDFs</button>
+      </div>
+
+      <div id="review-table-container">
+        <table id="review-table">
+          <thead>
+            <tr>
+              <th class="col-file">File</th>
+              <th class="col-preview">DOB Area</th>
+              <th class="col-dob">Extracted DOB</th>
+              <th class="col-password">Password</th>
+              <th class="col-status">Status</th>
+              <th class="col-action"></th>
+            </tr>
+          </thead>
+          <tbody id="review-body">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="review-footer">
+        <div class="status-summary" id="status-summary"></div>
+        <div class="review-actions">
+          <button id="export-report-btn" class="btn-secondary">Export Report</button>
+          <button id="protect-all-btn" class="btn-primary">Protect All PDFs</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Done Screen -->
+    <div id="done-screen" class="hidden">
+      <div class="done-content">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+          <polyline points="22,4 12,14.01 9,11.01"/>
+        </svg>
+        <h2 id="done-title">All PDFs have been password-protected!</h2>
+        <p id="done-subtitle">Output folder: <span id="done-output-dir"></span></p>
+        <div class="done-actions">
+          <button id="open-folder-btn" class="btn-secondary">Open Folder</button>
+          <button id="export-report-done-btn" class="btn-secondary">Export Report</button>
+          <button id="process-more-btn" class="btn-primary">Process More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="renderer.js"></script>
+</body>
+</html>

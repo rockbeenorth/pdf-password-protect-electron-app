@@ -1,0 +1,362 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --text-secondary: #64748b;
+  --radius: 8px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  user-select: none;
+}
+
+#app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+header {
+  margin-bottom: 24px;
+}
+
+header h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Drop Zone */
+#drop-zone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 60px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--surface);
+}
+
+#drop-zone:hover,
+#drop-zone.drag-over {
+  border-color: var(--primary);
+  background: #eff6ff;
+}
+
+#drop-zone.drag-over {
+  border-style: solid;
+}
+
+.drop-zone-content svg {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.drop-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.drop-hint {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.output-dir-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.output-dir-row label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#output-dir-label {
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-primary:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: #f1f5f9;
+}
+
+/* Progress */
+.progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+#progress-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Review Table */
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.review-header h2 {
+  font-size: 18px;
+}
+
+#review-table-container {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+#review-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+#review-table thead {
+  background: #f8fafc;
+}
+
+#review-table th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+#review-table td {
+  padding: 10px 12px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border);
+}
+
+#review-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.col-file { width: 14%; }
+.col-preview { width: 38%; }
+.col-dob { width: 11%; }
+.col-password { width: 22%; }
+.col-status { width: 8%; text-align: center; }
+.col-action { width: 7%; text-align: center; }
+
+.file-name {
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.preview-img {
+  max-width: 100%;
+  max-height: 180px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.preview-img:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.text-context {
+  font-family: monospace;
+  font-size: 11px;
+  background: #f1f5f9;
+  padding: 6px 8px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  max-height: 80px;
+  overflow-y: auto;
+  line-height: 1.4;
+}
+
+.text-context .highlight {
+  background: #fef08a;
+  font-weight: 700;
+}
+
+.password-input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.password-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.status-icon {
+  font-size: 18px;
+}
+
+.status-ok { color: var(--success); }
+.status-warn { color: var(--warning); }
+.status-err { color: var(--danger); }
+
+.btn-remove {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+.btn-remove:hover {
+  background: #fee2e2;
+  color: var(--danger);
+}
+
+.review-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.status-summary {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.review-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Done Screen */
+.done-content {
+  text-align: center;
+  padding: 60px 24px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.done-content h2 {
+  margin-top: 16px;
+  font-size: 20px;
+}
+
+.done-content p {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+#done-output-dir {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.done-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Encrypting state on review table */
+.encrypting td {
+  opacity: 0.6;
+}
+
+.encrypting .password-input {
+  pointer-events: none;
+}

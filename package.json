@@ -1,0 +1,67 @@
+{
+  "name": "pdf-password-protector",
+  "version": "1.0.1",
+  "description": "Automatically password-protect patient PDF reports using DOB",
+  "main": "main.js",
+  "scripts": {
+    "start": "unset ELECTRON_RUN_AS_NODE && electron .",
+    "postinstall": "node scripts/copy-vendor.js",
+    "build:win": "electron-builder --win --x64",
+    "build:mac": "electron-builder --mac",
+    "download-qpdf": "node scripts/download-qpdf.js"
+  },
+  "keywords": [],
+  "author": "VisitHealth",
+  "license": "ISC",
+  "dependencies": {
+    "pdfjs-dist": "^4.10.38",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.visithealth.pdf-protector",
+    "productName": "PDF Password Protector",
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "lib/**/*"
+    ],
+    "mac": {
+      "target": "dmg",
+            "extraResources": [
+        {
+          "from": "resources/qpdf/mac",
+          "to": "qpdf/mac",
+          "filter": ["**/*"]
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+            "extraResources": [
+        {
+          "from": "resources/qpdf/win",
+          "to": "qpdf/win",
+          "filter": [
+            "**/*"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false
+    }
+  }
+}
