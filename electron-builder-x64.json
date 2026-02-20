@@ -1,0 +1,20 @@
+{
+  "appId": "com.visithealth.pdf-protector",
+  "productName": "PDF Password Protector",
+  "files": [
+    "main.js",
+    "preload.js",
+    "src/**/*",
+    "lib/**/*"
+  ],
+  "mac": {
+    "target": "dmg",
+    "extraResources": [
+      {
+        "from": "resources/qpdf/mac-x64",
+        "to": "qpdf/mac-x64",
+        "filter": ["**/*"]
+      }
+    ]
+  }
+}

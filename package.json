@@ -8,6 +8,7 @@
     "postinstall": "node scripts/copy-vendor.js",
     "build:win": "electron-builder --win --x64",
     "build:mac": "electron-builder --mac",
+    "build:mac-x64": "electron-builder --mac --x64 --config electron-builder-x64.json",
     "download-qpdf": "node scripts/download-qpdf.js"
   },
   "keywords": [],
