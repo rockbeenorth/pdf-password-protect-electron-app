@@ -138,3 +138,4 @@ Update the version in `package.json` before building. Both Mac and Windows outpu
 - **OCR fallback**: `tesseract.js` is included as a dependency but not actively used — all current lab PDFs have selectable text. Could be wired up for scanned/image-only PDFs
 - **macOS code signing**: Currently ad-hoc signed. For distribution, configure an Apple Developer certificate and notarization
 - **Windows code signing**: Currently unsigned. For production, configure an EV code signing certificate to avoid SmartScreen warnings
+# dob-password-protect-app
